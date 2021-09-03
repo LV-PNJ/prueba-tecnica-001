@@ -27,3 +27,5 @@ Para ejecutar esta aplicación debe seguir los siguientes pasos cuidadosamente:
 7. Acceda a la IP "localhost:3000"
 
 NPM -version 6.14.14
+
+En la carpeta "Evidencias" se encuentran screenshot de algunas de las vistas.
