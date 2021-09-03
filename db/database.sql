@@ -1,9 +1,9 @@
 CREATE TABLE
-IF NOT EXISTS PROGRAMA
+IF NOT EXISTS CATEGORIA
 (
   id INT
 (6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  acaProgram VARCHAR
+  categoria VARCHAR
 (255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -12,56 +12,24 @@ IF NOT EXISTS `producto`
 (
   id int
 (11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  doc int
+
+  title varchar
+(255) NOT NULL,
+  price int
 (11) NOT NULL,
-  email varchar
-(255) NOT NULL,
-  name varchar
-(255) NOT NULL,
-  lastname varchar
-(255) NOT NULL,
-  id_program INT
-(6) UNSIGNED,
-  semester int
+id_category int
 (11) NOT NULL,
-  contact varchar
+description varchar
+(255) NOT NULL,
+image varchar
 (255) NOT NULL,
   FOREIGN KEY
-(id_program) REFERENCES PROGRAMA
+(id_category) REFERENCES CATEGORIA
 (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE
-IF NOT EXISTS `categoria`
-(
-  id int
-(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  materia varchar
-(255) NOT NULL,
-  fecha varchar
-(255) NOT NULL,
-  salon varchar
-(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE
-IF NOT EXISTS `producto_categoria`
-(
-    id int
-(11) UNSIGNED AUTO_INCREMENT,
-    producto_id int
-(11) NOT NULL,
-    categoria_id INT
-(11) UNSIGNED NOT NULL,
-    PRIMARY KEY
-(id),
-    FOREIGN KEY
-(producto_id) REFERENCES producto
-(id),
-    FOREIGN KEY
-(categoria_id) REFERENCES categoria
-(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 DELIMITER //
 create procedure create_producto (
