@@ -36,10 +36,9 @@ export default function RegistrarProducto() {
     },
     validate,
     onSubmit: (values) => {
+      console.log(values)
       AppContext.create("products", JSON.stringify(values))
         .then((response) => {
-          setProducto({});
-          setSubmitted(true);
           console.log(response);
         })
         .catch((e) => {

@@ -32,7 +32,9 @@ function App() {
 console.log(producto)
   return (
     <>
+
       <Router>
+      <NavBar />
         <Switch>
           <Route path="/home" component={Home} />
           <Route path={`/producto/ver`}>

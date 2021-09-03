@@ -85,3 +85,11 @@ BEGIN
     from producto;
 END
 //
+
+create procedure allSubject
+  ()
+BEGIN
+    select *
+    from user;
+END
+//
