@@ -13,15 +13,13 @@ const Producto = function (Producto) {
 
 Producto.create = (newProducto, result) => {
   sql.query(
-    "call create_Producto (?,?,?,?,?,?,?)",
+    "call create_Producto (?,?,?,?,?)",
     [
-      newProducto.doc,
-      newProducto.email,
-      newProducto.name,
-      newProducto.lastName,
-      newProducto.id_program,
-      newProducto.semester,
-      newProducto.contact,
+      newProducto.title,
+      newProducto.description,
+      newProducto.id_category,
+      newProducto.price,
+      newProducto.image,
     ],
     (err, res) => {
       if (err) {
@@ -70,7 +68,7 @@ Producto.getAll = (result) => {
 
 Producto.updateById = (id, Producto, result) => {
   sql.query(
-    "UPDATE Producto SET doc = ?, email = ?, name = ?, lastname = ?, id_program = ?, semester = ?, contact = ? WHERE id = ?",
+    "UPDATE Producto SET title = ?, id_category = ?, price = ?, description = ?, image WHERE id = ?",
     [Producto.doc, Producto.email, Producto.name, Producto.lastName, Producto.id_program, Producto.semester, Producto.contact, id],
     (err, res) => {
       if (err) {

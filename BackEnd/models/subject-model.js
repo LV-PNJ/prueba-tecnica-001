@@ -6,7 +6,7 @@ const Subject = function(Subject) {
 };
 
 Subject.create = (newSubject, result) => {
-  sql.query("INSERT INTO Subjects SET ?", newSubject, (err, res) => {
+  sql.query("INSERT INTO user SET ?", newSubject, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -19,7 +19,7 @@ Subject.create = (newSubject, result) => {
 };
 
 Subject.findById = (SubjectId, result) => {
-  sql.query(`SELECT * FROM Subjects WHERE id = ${SubjectId}`, (err, res) => {
+  sql.query(`SELECT * FROM user WHERE id = ${SubjectId}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -74,7 +74,7 @@ Subject.updateById = (id, Subject, result) => {
 };
 
 Subject.remove = (id, result) => {
-  sql.query("DELETE FROM Subjects WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM user WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -82,12 +82,12 @@ Subject.remove = (id, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Subject with the id
+      // not found user with the id
       result({ kind: "not_found" }, null);
       return;
     }
 
-    console.log("deleted Subject with id: ", id);
+    console.log("deleted user with id: ", id);
     result(null, res);
   });
 };
