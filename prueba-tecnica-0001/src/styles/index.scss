@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --background: #f8f8f8;
+  --color-icon: #000000;
+  --color-icon-active: #ffffff;
+  --background-navigation: #f7f6fb;
+  --box-shadow-nav: rgb(49, 35, 136);
+  --text-color-nav-normal: #000000;
+  --text-color-nav-active: #fff;
+  --background-Bar: #f7f6fb;
+}
+
+html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+  }
+
+  .padre {
+    width: 100%;
+    height: 90vh;
+  }
+  
+  .flexbox.padre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .titulo {
+      text-align: center;
+  }
+
+  .container {
+    margin-top: 5%;
+    width: 100%;
+    aspect-ratio: 100 / 29;
+  }
+
+  /*==============
+      Calendar
+  ==============*/
+
+  .test {
+    width: 100%;
+    height: 500px;
+  }
+
+  .navbar {
+    padding-left: 1.5rem;
+    padding-right: .5rem;
+  }
