@@ -3,23 +3,22 @@ const sql = require("../db/db.js");
 // constructor
 // constructor
 const Categoria = function (Categoria) {
-  this.idMonitor = Monitor.idMonitor;
-  this.idCategoria = Monitor.idCategoria;
-  this.subject = Monitor.subject;
+  this.idCategory = Monitor.idCategory;
+  this.category = Monitor.category;
   this.salon = Monitor.salon;
   this.fecha = Monitor.fecha;
 };
 
-Categoria.create = (idMonitor, idCategoria, subject, salon, fecha, result) => {
-  sql.query("call create_categoria (?,?,?,?,?)", [idMonitor, idCategoria, subject, salon, fecha], (err, res) => {
+Categoria.create = ( description, result) => {
+  sql.query("call create_categoria (?,?)", [description], (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
 
-    console.log("created Categoria: ", { id: res.insertId, ...idMonitor, ...idCategoria });
-    result(null, { id: res.insertId, ...idMonitor, ...idCategoria });
+    console.log("created Categoria: ", { id: res.insertId, ...idCategoria });
+    result(null, { id: res.insertId,  ...idCategoria });
   });
 };
 
@@ -57,8 +56,8 @@ Categoria.getAll = result => {
 
 Categoria.updateById = (id, Categoria, result) => {
   sql.query(
-    "update_Categoria (?, ?, ?, ?, ?)",
-    [Categoria.idCategoria, Categoria.idMonitor, Categoria.subject, Categoria.salon, Categoria.fecha, id],
+    "update_Categoria (?, ?)",
+    [ Categoria.description, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

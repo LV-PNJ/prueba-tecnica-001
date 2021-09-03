@@ -52,8 +52,8 @@ Subject.getAll = result => {
 
 Subject.updateById = (id, Subject, result) => {
   sql.query(
-    "UPDATE Subjects SET email = ?, name = ?, active = ? WHERE id = ?",
-    [Subject.email, Subject.name, Subject.active, id],
+    "UPDATE user SET username = ?, name = ?, active = ? WHERE id = ?",
+    [Subject.username, Subject.name, Subject.active, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

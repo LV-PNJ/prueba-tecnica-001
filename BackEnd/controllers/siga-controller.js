@@ -10,13 +10,11 @@ create = (req, res) => {
   }
  console.log(req.body)
  const producto = new ({
-  doc: req.body.doc,
-  email: req.body.email,
-  name: req.body.name,
-  lastName: req.body.lastName,
-  id_program: req.body.id_program,
-  username: req.body.semester,
-  contact: req.body.contact
+  title: req.body.title,
+  price: req.body.price,
+  description: req.body.description,
+  id_category: req.body.id_category,
+  image: req.body.image
 });
 
   // Save productoia in the database
@@ -99,7 +97,7 @@ createcategoria = (req, res) => {
     });
   }
   // Save categoria in the database
-  categoria.create(req.body.id_Monitor, req.body.id_categoria, req.body.subject, req.body.salon, req.body.fecha, (err, data) => {
+  categoria.create(req.body.category, (err, data) => {
     if (err)
       res.status(500).send({
         message:

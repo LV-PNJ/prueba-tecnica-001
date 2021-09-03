@@ -2,13 +2,12 @@ const sql = require("../db/db");
 
 // constructor
 const Producto = function (Producto) {
-  this.doc = Producto.doc;
-  this.email = Producto.email;
-  this.name = Producto.name;
-  this.lastName = Producto.lastName;
-  this.id_program = Producto.id_program;
-  this.semester = Producto.semester;
-  this.contact = Producto.contact;
+  this.title = Producto.title;
+  this.description = Producto.description;
+  this.price = Producto.price;
+  this.image = Producto.image;
+  this.id_category = Producto.id_category;
+
 };
 
 Producto.create = (newProducto, result) => {
@@ -68,8 +67,8 @@ Producto.getAll = (result) => {
 
 Producto.updateById = (id, Producto, result) => {
   sql.query(
-    "UPDATE Producto SET title = ?, id_category = ?, price = ?, description = ?, image WHERE id = ?",
-    [Producto.doc, Producto.email, Producto.name, Producto.lastName, Producto.id_program, Producto.semester, Producto.contact, id],
+    "UPDATE Producto SET title = ?, id_category = ?, price = ?, description = ?, image= ? image WHERE id = ?",
+    [Producto.title, Producto.id_category, Producto.price, Producto.description, Producto.image, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
