@@ -63,3 +63,25 @@ BEGIN
         (titleP, descriptionP, id_categoryP, priceP, imageP);
 END
 //
+
+
+
+create procedure create_categoria
+  (
+  IN categoriaP varchar
+(255))
+BEGIN
+    insert into CATEGORIA
+        (categoria)
+    values
+        (categoriaP);
+END
+//
+
+create procedure allproducto
+  ()
+BEGIN
+    select *
+    from producto;
+END
+//
