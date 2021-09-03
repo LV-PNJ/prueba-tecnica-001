@@ -26,3 +26,4 @@ Para ejecutar esta aplicación debe seguir los siguientes pasos cuidadosamente:
 6. Después de que se hayan instalado las librerías, debe escribir "npm run start" en la consola.
 7. Acceda a la IP "localhost:3000"
 
+NPM -version 6.14.14

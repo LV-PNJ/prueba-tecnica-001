@@ -11,7 +11,7 @@ const Categoria = function (Categoria) {
 };
 
 Categoria.create = (idMonitor, idCategoria, subject, salon, fecha, result) => {
-  sql.query("call create_monitor_Categoria (?,?,?,?,?)", [idMonitor, idCategoria, subject, salon, fecha], (err, res) => {
+  sql.query("call create_categoria (?,?,?,?,?)", [idMonitor, idCategoria, subject, salon, fecha], (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -57,7 +57,7 @@ Categoria.getAll = result => {
 
 Categoria.updateById = (id, Categoria, result) => {
   sql.query(
-    "update_monitor_Categoria (?, ?, ?, ?, ?)",
+    "update_Categoria (?, ?, ?, ?, ?)",
     [Categoria.idCategoria, Categoria.idMonitor, Categoria.subject, Categoria.salon, Categoria.fecha, id],
     (err, res) => {
       if (err) {

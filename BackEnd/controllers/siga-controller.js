@@ -9,14 +9,14 @@ create = (req, res) => {
     });
   }
  console.log(req.body)
- const monitor = new ({
-  doc: req.query.doc,
-  email: req.query.email,
-  name: req.query.name,
-  lastName: req.query.lastName,
-  id_program: req.query.id_program,
-  username: req.query.semester,
-  contact: req.query.contact
+ const producto = new ({
+  doc: req.body.doc,
+  email: req.body.email,
+  name: req.body.name,
+  lastName: req.body.lastName,
+  id_program: req.body.id_program,
+  username: req.body.semester,
+  contact: req.body.contact
 });
 
   // Save productoia in the database
@@ -47,7 +47,7 @@ findAll = (req, res) => {
 // Update a producto identified by the productoId in the request
 update = (req, res) => {
   // Validate Request
-  if (!req.query) {
+  if (!req.body) {
     res.status(400).send({
       message: "¡Contenido no puede estar vacio!"
     });
@@ -55,7 +55,7 @@ update = (req, res) => {
 
   producto.updateById(
     req.params.productoId,
-    new producto(req.query),
+    new producto(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
@@ -99,7 +99,7 @@ createcategoria = (req, res) => {
     });
   }
   // Save categoria in the database
-  categoria.create(req.query.id_Monitor, req.query.id_categoria, req.query.subject, req.query.salon, req.query.fecha, (err, data) => {
+  categoria.create(req.body.id_Monitor, req.body.id_categoria, req.body.subject, req.body.salon, req.body.fecha, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -111,7 +111,7 @@ createcategoria = (req, res) => {
 
 updatecategoria = (req, res) => {
 // Validate Request
-if (!req.query) {
+if (!req.body) {
   res.status(400).send({
     message: "¡Contenido no puede estar vacio!"
   });
@@ -119,7 +119,7 @@ if (!req.query) {
 
 categoria.updateById(
   req.params.categoriaId,
-  new categoria(req.query),
+  new categoria(req.body),
   (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
