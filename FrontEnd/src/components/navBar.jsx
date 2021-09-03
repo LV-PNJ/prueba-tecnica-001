@@ -50,13 +50,13 @@ const NavBar = () => {
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <Link className="dropdown-item" to={`producto/registrar`}>
+                <Link className="dropdown-item" to={location => ({ ...location, pathname: "/producto/registrar" })}>
                   Registrar
                 </Link>
-                <Link className="dropdown-item" to={`producto/ver`}>
+                <Link className="dropdown-item" to={location => ({ ...location, pathname:`/producto/ver`})}>
                   Ver
                 </Link>
-                <Link className="dropdown-item" to={`producto/ver`}>
+                <Link className="dropdown-item" to={location => ({ ...location, pathname:`/producto/eliminar`})}>
                   Eliminar
                 </Link>
               </div>
@@ -77,13 +77,13 @@ const NavBar = () => {
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <Link className="dropdown-item" to={`categoria/registrar`}>
+                <Link className="dropdown-item" to={location => ({ ...location, pathname:`/categoria/registrar`})}>
                   Registrar
                 </Link>
-                <Link className="dropdown-item" to={`categoria/ver`}>
+                <Link className="dropdown-item" to={location => ({ ...location, pathname:`/categoria/ver`})}>
                   Ver
                 </Link>
-                <Link className="dropdown-item" to={`categoria/delete`}>
+                <Link className="dropdown-item" to={`/categoria/delete`}>
                   Eliminar
                 </Link>
               </div>
