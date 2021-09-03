@@ -12,19 +12,6 @@ import AppContext from "../context/AppContext";
 export default function RegistrarProducto() {
   const [producto, setProducto] = useState(AppContext);
   const [submitted, setSubmitted] = useState(false);
-  const validate = (values) => {
-    const errors = {};
-
-    if (!values.email) {
-      errors.email = "Requerido";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
-      errors.email = "Correo electrónico inválido";
-    }
-
-    return errors;
-  };
 
   const formik = useFormik({
     initialValues: {
@@ -34,7 +21,6 @@ export default function RegistrarProducto() {
       description: "",
       image: "",
     },
-    validate,
     onSubmit: (values) => {
       console.log(values)
       AppContext.create("products", JSON.stringify(values))
